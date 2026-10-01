@@ -55,17 +55,3 @@ resource "aws_s3_bucket_lifecycle_configuration" "app_bucket_lifecycle" {
     }
   }
 }
-
-
-resource "aws_s3_object" "test_file" {
-  bucket = aws_s3_bucket.app_bucket.id
-  key    = "test/test.txt"
-  source = "test.txt"
-
-  server_side_encryption = "AES256"
-
-  tags = {
-    Environment = "dev"
-    ManagedBy   = "Terraform"
-  }
-}
